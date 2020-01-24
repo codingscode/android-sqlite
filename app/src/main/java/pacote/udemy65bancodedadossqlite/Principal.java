@@ -22,13 +22,15 @@ public class Principal extends AppCompatActivity {
         bancoDados.execSQL("CREATE TABLE IF NOT EXISTS pessoas (nome VARCHAR, idade INT(3))");
 
         //Inserir dados
-        /*bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Denis', 19)");
-        bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Cecilia', 21)");
-        bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Vicente', 20)");
-        bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Rivka', 23)");*/
+        /*bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Raul', 25)");
+        bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Lucia', 20)");*/
+
 
         //Recuperar pessoas
-        Cursor cursor = bancoDados.rawQuery("SELECT nome, idade FROM pessoas", null);
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE nome = 'Vicente'";
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE idade >= 21";
+        String consulta = "SELECT nome, idade FROM pessoas WHERE idade IN(21,23)";
+        Cursor cursor = bancoDados.rawQuery( consulta, null);
 
         //Indices da tabela
         int indiceNome = cursor.getColumnIndex("nome");
@@ -36,8 +38,11 @@ public class Principal extends AppCompatActivity {
 
         cursor.moveToFirst();
         while (cursor != null) {
-            Log.i("RESULTADO - nome: ", cursor.getString(indiceNome));
-            Log.i("RESULTADO - idade: ", cursor.getString(indiceIdade));
+
+            String nome = cursor.getString(indiceNome);
+            String idade = cursor.getString(indiceIdade);
+
+            Log.i("RESULTADO - nome: ", nome + " idade: " + idade);
             cursor.moveToNext();
         }
     }
