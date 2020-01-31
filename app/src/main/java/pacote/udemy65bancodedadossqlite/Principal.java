@@ -24,12 +24,24 @@ public class Principal extends AppCompatActivity {
         //Inserir dados
         /*bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Raul', 25)");
         bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Lucia', 20)");*/
-
+        /*bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Mariana', 25)");
+        bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Marilia', 20)");
+        bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Mario', 20)");*/
 
         //Recuperar pessoas
            //String consulta = "SELECT nome, idade FROM pessoas WHERE nome = 'Vicente'";
            //String consulta = "SELECT nome, idade FROM pessoas WHERE idade >= 21";
-        String consulta = "SELECT nome, idade FROM pessoas WHERE idade IN(21,23)";
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE idade IN(21,23)";
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE idade BETWEEN 21 AND 26";
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE nome LIKE 'Cecilia'";
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE nome LIKE '%cente'";
+        String filtro = "mar";
+
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE nome LIKE '%" + filtro + "%' ";
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE 1=1 ORDER BY idade ASC";
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE 1=1 ORDER BY nome ASC";
+           //String consulta = "SELECT nome, idade FROM pessoas WHERE 1=1 ORDER BY idade DESC";
+        String consulta = "SELECT nome, idade FROM pessoas WHERE 1=1 ORDER BY nome DESC LIMIT 3";
         Cursor cursor = bancoDados.rawQuery( consulta, null);
 
         //Indices da tabela
