@@ -22,6 +22,8 @@ public class Principal extends AppCompatActivity {
         //bancoDados.execSQL("CREATE TABLE IF NOT EXISTS pessoas (nome VARCHAR, idade INT(3))");
         //bancoDados.execSQL("UPDATE pessoas SET idade = 30 WHERE nome = 'Valeria'");
         //bancoDados.execSQL("UPDATE pessoas SET idade = 30, nome = 'Luana' WHERE nome = 'Valeria'");
+        //bancoDados.execSQL("UPDATE pessoas2 SET idade = 30, nome = 'Herma' WHERE id = 8");
+        //bancoDados.execSQL("DELETE FROM pessoas2 WHERE id = 8");
         //bancoDados.execSQL("DROP TABLE pessoas");
         bancoDados.execSQL("CREATE TABLE IF NOT EXISTS pessoas2 (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, idade INT(3))");
 
@@ -35,14 +37,14 @@ public class Principal extends AppCompatActivity {
         bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Valeria', 36)");
         bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Aladin', 32)");*/
 
-        bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Cesar', 18)");
+        /*bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Cesar', 18)");
         bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Albert', 19)");
         bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Alberto', 20)");
         bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Celso', 21)");
         bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Vladimir', 22)");
         bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Daniel', 23)");
         bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Luiza', 24)");
-        bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Isadora', 25)");
+        bancoDados.execSQL("INSERT INTO pessoas2(nome, idade) VALUES('Isadora', 25)");*/
 
         //Recuperar pessoas
            //String consulta = "SELECT nome, idade FROM pessoas WHERE nome = 'Vicente'";
@@ -60,7 +62,8 @@ public class Principal extends AppCompatActivity {
            //String consulta = "SELECT nome, idade FROM pessoas WHERE 1=1 ORDER BY nome DESC LIMIT 3";
            //String consulta = "SELECT nome, idade FROM pessoas WHERE nome = 'Valeria'";
            //String consulta = "SELECT nome, idade FROM pessoas WHERE nome = 'Luana'";
-        String consulta = "SELECT * FROM pessoas2";
+           //String consulta = "SELECT * FROM pessoas2";
+        String consulta = "SELECT id, nome, idade FROM pessoas2 WHERE 1=1";
         Cursor cursor = bancoDados.rawQuery( consulta, null);
 
         //Indices da tabela
